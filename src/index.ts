@@ -1,4 +1,5 @@
 import express from 'express';
+import {createConnection} from "typeorm";
 
 const app = express();
 
@@ -6,6 +7,9 @@ app.get('/', (req, res) => {
     res.send('hello world');
 })
 
-app.listen(5000, () => {
-    console.log('server is listening 5000');
+createConnection().then(connection => {
+    app.listen(5000, () => {
+        console.log('server is listening 5000');
+    });
 });
+
