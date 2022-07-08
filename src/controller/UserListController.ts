@@ -20,20 +20,15 @@ export class UserListController{
         console.log(req.body)
         const id = req.body.id;
         const password = req.body.password;
-        const result = await getConnection().getRepository(UserList).findOne({where:{id}});
-        const result2 = await getConnection().getRepository(UserList).findOne({where:{password}});
+        const result = await getConnection().getRepository(UserList).findOne({where:{id, password}});
 
-        if (result2 ==null){
-            return res.status(200).send({ loginSuccess : false, message: "비밀번호가 없습니다."});
-        }
-
-        else if(result == null){
-            return res.status(200).send({ loginSuccess : false, message: "아이디가 없습니다."});
-        }
-
-        else if(id ==result.id && password == result2.password){
+        if(result != null){
             return res.status(200).send({ loginSuccess: true, message: "로그인 성공"});
 
+        }
+
+        else{
+            return res.status(200).send({ loginSuccess: false, message: "로그인에 실패하였습니다."});
         }
         console.log(result);
         res.send(result);
