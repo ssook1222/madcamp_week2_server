@@ -17,7 +17,7 @@ export class UserListController{
     }
 
     static findUser = async (req, res) => {
-        console.log(req.body)
+        console.log(req.body);
         const id = req.body.id;
         const password = req.body.password;
         const result = await getConnection().getRepository(UserList).findOne({where:{id, password}});
@@ -33,5 +33,18 @@ export class UserListController{
         console.log(result);
         res.send(result);
 
+    }
+
+    static matchId = async (req, res) => {
+        console.log(req.body);
+        const id = req.body.id;
+        const result = await getConnection().getRepository(UserList).findOne({where:{id}});
+
+        if(result == null){
+            return res.status(200).send({ UseId: true, message: "사용가능한 아이디입니다."});
+        }
+        else{
+            return res.status(200).send({ UseId: false, message: "중복된 아이디입니다."});
+        }
     }
 }
