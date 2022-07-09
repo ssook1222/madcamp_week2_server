@@ -22,6 +22,7 @@ export class UserListController{
         const password = req.body.password;
         const result = await getConnection().getRepository(UserList).findOne({where:{id, password}});
 
+
         if(result != null){
             return res.status(200).send({ loginSuccess: true, message: result});
 
