@@ -32,8 +32,6 @@ export class WeatherController{
         xmlToJson=JSON.parse(xmlToJson);
         for(var i=0; i<xmlToJson.response.body.items.item.length; i++){
 
-            console.log(xmlToJson.response.body.items.item[i])
-
              if(xmlToJson.response.body.items.item[i].fcstDate._text.toString()==todayDt){
                  if(xmlToJson.response.body.items.item[i].category._text.toString()=="TMP"){
                      if(xmlToJson.response.body.items.item[i].fcstTime._text.toString()=="1200"){
