@@ -47,4 +47,6 @@ export class UserListController{
             return res.status(200).send({ UseId: false, message: "중복된 아이디입니다."});
         }
     }
+
+
 }

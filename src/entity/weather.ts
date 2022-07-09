@@ -1,5 +1,6 @@
-import {Column, Entity, ManyToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {FashionList} from "./FashionList";
+
 
 @Entity()
 export class weather {
@@ -9,6 +10,6 @@ export class weather {
     @Column()
     weather: string;
 
-    @Column()
-    fid: number;
+    @ManyToOne(() => FashionList, flist => flist.id)
+    flist: FashionList[];
 }

@@ -1,4 +1,7 @@
-import {Column, CreateDateColumn, Entity, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
+import {Column, CreateDateColumn, Entity, OneToMany, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
+import {FashionList} from "./FashionList";
+
+
 
 @Entity()
 export class UserList {
@@ -13,4 +16,7 @@ export class UserList {
 
     @Column()
     gender: boolean;
+
+    @OneToMany(( )=> FashionList, flist => flist.id )
+    flist : FashionList[];
 }

@@ -1,5 +1,6 @@
-import {Column, Entity, ManyToMany, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
 import {weather} from "./weather";
+import {UserList} from "./UserList";
 
 
 
@@ -15,10 +16,10 @@ export class FashionList{
     top_color: string;
 
     @Column({length:10})
-    bottom: string;
+    bottom?: string;
 
     @Column({length:10})
-    bottom_color: string;
+    bottom_color?: string;
 
     @Column({length:10})
     accessory: string;
@@ -36,9 +37,18 @@ export class FashionList{
     gender: boolean;
 
     @Column()
-    min_tem: number;
+    public: boolean;
 
     @Column()
-    max_tem: number;
+    min_temp: number;
+
+    @Column()
+    max_temp: number;
+
+    @ManyToOne(() => UserList, userlist => userlist.id)
+    userlist : UserList[];
+
+    @OneToMany(() => weather, weathers => weathers.id)
+    weathers: weather[];
 
 }
