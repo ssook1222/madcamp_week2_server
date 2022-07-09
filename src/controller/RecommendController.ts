@@ -2,6 +2,7 @@ import {FashionList_recommend} from "../entity/FashionList_recommend";
 import {Between, Equal, getConnection, LessThanOrEqual, MoreThanOrEqual} from "typeorm";
 import {weather_recommend} from "../entity/weather_recommend";
 import {weather} from "../entity/weather";
+import {FashionList} from "../entity/FashionList";
 
 export class RecommendController{
 
@@ -70,6 +71,30 @@ export class RecommendController{
 
 
         console.log(ans_list);
+
+
+    }
+
+    static addFashion = async (req, res)=>{
+        const fashionlist = new FashionList();
+
+        fashionlist.top= req.body.top;
+        fashionlist.top_color = req.body.top_color;
+        fashionlist.bottom = req.body.bottom;
+        fashionlist.bottom_color = req.body.bottom_color;
+        fashionlist.accessory = req.body.accessory;
+        fashionlist.accessory_color = req.body.accessory_color;
+        fashionlist.outer = req.body.outer;
+        fashionlist.outer_color = req.body.outer_color;
+        fashionlist.gender = req.body.gender;
+        fashionlist.userlist = req.body.userid;
+        fashionlist.public = req.body.public;
+
+        const result = await getConnection().getRepository(FashionList).save(fashionlist);
+        console.log(result);
+        res.send(result);
+
+
 
 
     }

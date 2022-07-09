@@ -39,12 +39,6 @@ export class FashionList{
     @Column()
     public: boolean;
 
-    @Column()
-    min_temp: number;
-
-    @Column()
-    max_temp: number;
-
     @ManyToOne(() => UserList, userlist => userlist.id)
     userlist : UserList[];
 

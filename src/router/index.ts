@@ -9,4 +9,5 @@ router.post('/user1', UserListController.findUser);
 router.post('/user2', UserListController.matchId);
 router.get('/test',WeatherController.weatherLookRequest);
 router.post('/rec', RecommendController.recFashion);
+router.post('/add', RecommendController.addFashion);
 export default router;
