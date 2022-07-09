@@ -30,9 +30,9 @@ export class RecommendController{
         })
 
         let weather1;
-        if(snow != null){
+        if(snow != "적설없음"){
             weather1 = "눈";
-        }else if(rain != null){
+        }else if(rain != "강수없음"){
             weather1 = "비";
         }else{
             weather1 = "맑음";

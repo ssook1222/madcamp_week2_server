@@ -9,6 +9,9 @@ export class weather_recommend {
     @Column()
     weather: string;
 
+    @Column()
+    tttt? : string;
+
     @ManyToOne(() => FashionList_recommend, flist => flist.id)
     flist: FashionList_recommend[];
 
