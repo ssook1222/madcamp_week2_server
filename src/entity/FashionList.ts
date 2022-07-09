@@ -32,7 +32,7 @@ export class FashionList{
     @Column({length:10})
     outer_color: string;
 
-    @Column({length:10})
+    @Column()
     gender: boolean;
 
     @Column()

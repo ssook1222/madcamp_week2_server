@@ -8,7 +8,9 @@ export class WeatherController{
         const ServiceKey = 'SZBwGGlg176EolbuT7gYxTRfBnuVKsOWYjNLnYfpjwnzPzQ82TbsYxo8tBVa7f7f0OG8VBVwh7bONOHs6OhYIg%3D%3D';
         const dataCd = "ASOS"
         const dateCd = "DAY"
-        let data="";
+        let tmp="";
+        let snow="";
+        let rain="";
 
         var now = new Date();
         var today = new Date(now.setDate(now.getDate()));
@@ -30,14 +32,26 @@ export class WeatherController{
         xmlToJson=JSON.parse(xmlToJson);
         for(var i=0; i<xmlToJson.response.body.items.item.length; i++){
 
+            console.log(xmlToJson.response.body.items.item[i])
+
              if(xmlToJson.response.body.items.item[i].fcstDate._text.toString()==todayDt){
                  if(xmlToJson.response.body.items.item[i].category._text.toString()=="TMP"){
                      if(xmlToJson.response.body.items.item[i].fcstTime._text.toString()=="1200"){
-                         data=xmlToJson.response.body.items.item[i].fcstValue._text.toString();
+                         tmp=xmlToJson.response.body.items.item[i].fcstValue._text.toString();
+                     }
+                 }
+                 if(xmlToJson.response.body.items.item[i].category._text.toString()=="SNO"){
+                     if(xmlToJson.response.body.items.item[i].fcstTime._text.toString()=="0600"){
+                         snow=xmlToJson.response.body.items.item[i].fcstValue._text.toString();
+                     }
+                 }
+                 if(xmlToJson.response.body.items.item[i].category._text.toString()=="PCP"){
+                     if(xmlToJson.response.body.items.item[i].fcstTime._text.toString()=="0600"){
+                         rain=xmlToJson.response.body.items.item[i].fcstValue._text.toString();
                      }
                  }
              };
         }
-        res.send(data);
+        res.send({"tmp":tmp, "snow":snow, "rain":rain});
     }
 }
