@@ -16,10 +16,10 @@ export class FashionList{
     top_color: string;
 
     @Column({length:10})
-    bottom?: string;
+    bottom: string;
 
     @Column({length:10})
-    bottom_color?: string;
+    bottom_color!: string;
 
     @Column({length:10})
     accessory: string;

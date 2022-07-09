@@ -63,15 +63,16 @@ export class RecommendController{
                   id: Equal(j)
               }
             })
+
             ans_list.push(r);
-            console.log(r);
+
 
         }
 
 
 
-        console.log(ans_list);
 
+        res.send(ans_list);
 
     }
 
