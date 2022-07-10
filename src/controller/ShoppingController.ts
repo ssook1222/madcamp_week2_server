@@ -10,6 +10,13 @@ export class ShoppingController {
                 'X-Naver-Client-Secret':"x8MuDLcUWi"
             }
         });
-        res.send(shopping.data);
+        console.log(shopping.data.items);
+
+        var url_array = new Array();
+        for(var i=0; i<shopping.data.items.length; i++){
+            const url = shopping.data.items[i].link;
+            url_array.push({"url":url});
+        }
+        res.send({"url_list":url_array});
     }
 }
