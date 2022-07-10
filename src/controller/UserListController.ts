@@ -24,7 +24,7 @@ export class UserListController{
 
 
         if(result != null){
-            return res.status(200).send({ loginSuccess: true, message: result, nickname:result.nickname, gender:result.gender});
+            return res.status(200).send({ loginSuccess: true, message: result, nickname:result.nickname, gender:result.gender, id:result.id});
 
         }
 
