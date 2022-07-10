@@ -93,7 +93,12 @@ export class RecommendController{
 
         const result = await getConnection().getRepository(FashionList).save(fashionlist);
         console.log(result);
-        res.send(result);
+        if(result!=null){
+            return res.status(200).send({addSuccess: true, message: "추가하였습니다."});
+        }
+        else {
+            return res.status(200).send({addSuccess: false, message:"추가에 실패했습니다."});
+        }
 
 
 
