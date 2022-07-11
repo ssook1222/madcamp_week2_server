@@ -14,11 +14,6 @@ export class RecommendController{
         const snow = req.body.snow;
         const rain = req.body.rain;
 
-
-
-
-
-
         const result1 = await getConnection().getRepository(FashionList_recommend).find({
 
             where:{
