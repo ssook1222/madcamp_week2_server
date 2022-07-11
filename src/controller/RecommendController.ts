@@ -1,7 +1,7 @@
 import {FashionList_recommend} from "../entity/FashionList_recommend";
 import {Between, Equal, getConnection, LessThanOrEqual, MoreThanOrEqual} from "typeorm";
 import {weather_recommend} from "../entity/weather_recommend";
-import {weather} from "../entity/weather";
+
 import {FashionList} from "../entity/FashionList";
 
 export class RecommendController{
