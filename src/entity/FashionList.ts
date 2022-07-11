@@ -1,9 +1,6 @@
 import {Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
 import {weather} from "./weather";
 import {UserList} from "./UserList";
-
-
-
 @Entity()
 export class FashionList{
     @PrimaryGeneratedColumn()
@@ -38,6 +35,9 @@ export class FashionList{
 
     @Column()
     public: boolean;
+
+    @Column({default:0})
+    Like: number;
 
     @ManyToOne(() => UserList, userlist => userlist.id)
     userlist : UserList[];

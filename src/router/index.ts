@@ -14,4 +14,5 @@ router.post('/rec', RecommendController.recFashion);
 router.post('/add', RecommendController.addFashion);
 router.get('/shopping/:item',ShoppingController.test);
 router.get('/public',PublicController.loadFashion);
+router.post('/addLike',PublicController.like);
 export default router;
