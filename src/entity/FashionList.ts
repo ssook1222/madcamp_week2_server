@@ -1,5 +1,5 @@
 import {Column, Entity, ManyToMany, ManyToOne, OneToMany, PrimaryColumn, PrimaryGeneratedColumn} from "typeorm";
-import {weather} from "./weather";
+
 import {UserList} from "./UserList";
 @Entity()
 export class FashionList{
@@ -42,7 +42,6 @@ export class FashionList{
     @ManyToOne(() => UserList, userlist => userlist.id)
     userlist : UserList[];
 
-    @OneToMany(() => weather, weathers => weathers.id)
-    weathers: weather[];
+
 
 }
