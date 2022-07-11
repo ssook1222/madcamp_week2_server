@@ -12,11 +12,13 @@ export class ShoppingController {
         });
         console.log(shopping.data.items);
 
-        var url_array = new Array();
+        var data_array = new Array();
         for(var i=0; i<shopping.data.items.length; i++){
+            const title = shopping.data.items[i].title;
             const url = shopping.data.items[i].link;
-            url_array.push({"url":url});
+            const price = shopping.data.items[i].lprice;
+            data_array.push({"title":title,"url":url,"price":price});
         }
-        res.send({"url_list":url_array});
+        res.send({"data":data_array});
     }
 }
