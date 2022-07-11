@@ -14,7 +14,7 @@ export class ShoppingController {
 
         var data_array = new Array();
         for(var i=0; i<shopping.data.items.length; i++){
-            const title = shopping.data.items[i].title;
+            const title = shopping.data.items[i].title.replace(/<[^>]*>?/g, '');;
             const url = shopping.data.items[i].link;
             const price = shopping.data.items[i].lprice;
             data_array.push({"title":title,"url":url,"price":price});
