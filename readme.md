@@ -45,11 +45,32 @@
 ---
 
 ```typescript
-console.log("주요 코드를 여기다 써 줘, 성준아!!!")    
+static addUser = async(req, res)=>{
+...
+const result = await getConnection().getRepository(UserList).save(userlist);
+}
 ```
 
-밑에다가는 코드 설명을 써주면 돼!!   
+addUser 함수는 새로운 유저를 회원가입 해주는 함수입니다. 
+안드로이드 앱에게 request로 회원정보를 받아오게 됩니다.
+회원정보들을 DataBase 안의 UserList 안에 저장합니다.
+result로 저장한 회원정보들을 안드로이드 앱으로 다시 전송합니다.
 
+```typescript
+static findUser = async (req, res) => {
+...
+const result = await getConnection().getRepository(UserList).findOne({where:{id, password}});
+if(result != null){
+            return res.status(200).send({ loginSuccess: true, message: result, nickname:result.nickname, gender:result.gender, id:result.id});
+}
+```
+
+findUser 함수는 로그인을 도와주는 함수입니다.
+안드로이드 앱에서 보내준 로그인 정보인 아이디와 패스워드로 UserList를 확인합니다.
+UserList 안에 해당 정보가 있을 경우 loginsuccess = true 와 회원정보를 안드로이드 앱으로 보내줍니다. 
+해당 정보가 없을 경우 loginsuccess = false 와 로그인에 실패했다는 메시지를 보내줍니다.
+
+그 밖에 회원가입 시 아이디 중복을 확인해주는 matchId 함수가 있습니다.
 
 #### ☂️ weather
 
