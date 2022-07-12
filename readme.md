@@ -104,11 +104,51 @@ console.log("주요 코드를 여기다 써 줘, 성준아!!!")
 > **기능** 
 
 ---
-```typescript
-console.log("주요 코드를 여기다 써 줘, 성준아!!!")
-```
 
-밑에다가는 코드 설명을 써주면 돼!!
+```typescript
+static recFashion = async (req, res)=>{
+const result1 = await getConnection().getRepository(FashionList_recommend).find({
+
+            where:{
+                min_temp : LessThanOrEqual(temp),
+                max_temp : MoreThanOrEqual(temp),
+                gender : Equal(gender)
+            }
+
+        })
+        ...
+        const ans_list = new Array<FashionList_recommend>;
+        for(let i = 0; i<id_list.length; i++){
+            let j = id_list[i];
+            const r = await getConnection().getRepository(FashionList_recommend).findOne({
+              where:{
+                  id: Equal(j)
+              }
+            })
+            ans_list.push(r);
+        }
+        res.send(ans_list);
+    }
+
+```
+날씨, 온도에 따라 데이터베이스에 기록된 옷 List들을 추천해주는 함수입니다.
+안드로이드 앱에서 request로 gender, temperature, snow, rain을 받아옵니다.
+database에서 저장된 FashionList_recommend의 tuple 중 받은 temperature이 min_temp와 max_temp 사이에 있는 tuple들의 id를 가져옵니다.
+snow, rain을 통해 오늘의 날씨를 지정합니다.
+database의 weather_recommend tuple 중 오늘의 날씨와 FashionList_recommed에서 가져온 id가 모두 만족하는 tuple 들을 가져와서 Array에 넣습니다.
+result로 해당 Array를 전송합니다.
+
+```typescript
+static addFashion = async (req, res)=>{
+...
+const result = await getConnection().getRepository(FashionList).save(fashionlist);
+if(result!=null){
+            return res.status(200).send({addSuccess: true, message: "추가하였습니다."});
+        }
+```
+자신만의 코디를 추가해주는 함수입니다.
+request로 database 안의 FashionList 안에 추가할 옷들과 public 여부를 보내줍니다.
+이 정보들을 database 안에 저장하고 성공 시 addSuccess = true와 "추가하였습니다" message를 보내줍니다.
 
 #### 🌱 public
 
