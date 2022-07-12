@@ -156,12 +156,21 @@ request로 database 안의 FashionList 안에 추가할 옷들과 public 여부�
 
 ---
 ```typescript
-console.log("주요 코드를 여기다 써 줘, 성준아!!!")
+static loadFashion = async (req, res)=>{
+const raw_result = await getConnection().getRepository(FashionList).find({
+            where:{
+                public : true
+            }, relations:{userlist: true}});
+            
+...
+data_array.push(...)
+res.send({"data":data_array});
+    }
 ```
-
-밑에다가는 코드 설명을 써주면 돼!!
-
-
+public 을 설정해놓은 다른사람들의 코디를 가져와주는 함수입니다.
+함수를 실행요청하는 request를 받으면 database의 FashionList에서 public이 설정되어있는 tuple들을 가져오게 됩니다.
+이 tuple들의 정보를 Array에 넣습니다.
+이 Array를 result로 안드로이드 앱에 전송하게 됩니다.
 
 
 
