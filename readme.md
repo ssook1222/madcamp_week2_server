@@ -30,6 +30,10 @@
 ---
 
 ### 📍 ERD
+<p align = "center" style = "color:gray">
+<img src = "https://user-images.githubusercontent.com/102964058/178426293-4295bae8-81fe-4c14-bfa2-3dec6b19bb04.png" width = "250" height = "400" />
+</p>
+
 
 ---
 
