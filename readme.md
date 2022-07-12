@@ -12,6 +12,9 @@
 
 [어플리케이션 프로토타입 다운 받으러 가기🚶🏻‍♀️](https://drive.google.com/file/d/1aBmzPkRekIs_3M5biMXd-knHz4tfLSt7/view?usp=sharing)
 
+---
+
+![thumbnail](https://user-images.githubusercontent.com/60427387/178412572-217cf3c2-c2f1-4945-b314-6c6a498654f2.png)
 
 ---
 
