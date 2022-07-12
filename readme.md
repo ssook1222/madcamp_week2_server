@@ -8,7 +8,7 @@
 **어플리케이션 기능 및 전체적인 UI는 프론트엔드 repository**에 있으니,     
 이 곳의 readme를 보고 싶으신 분께서는 **아래 링크로 이동**해주세요!
 
-[프론트엔드 리드미로 이동 🚶🏻‍♂️]()
+[프론트엔드 리드미로 이동 🚶🏻‍♂️](https://github.com/mscj1004/madcamp_week2)
 
 [어플리케이션 프로토타입 다운 받으러 가기🚶🏻‍♀️](https://drive.google.com/file/d/1aBmzPkRekIs_3M5biMXd-knHz4tfLSt7/view?usp=sharing)
 
