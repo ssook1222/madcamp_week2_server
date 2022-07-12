@@ -85,12 +85,23 @@ UserList 안에 해당 정보가 있을 경우 loginsuccess = true 와 회원정
 
 ---
 ```typescript
-console.log("주요 코드를 여기다 써 줘, 성준아!!!")
+static weatherLookRequest = async (req,res)=>{
+...
+var url = ... 
+const axios = require('axios');
+        const get_test = await axios.get(url);
+        var xmlToJson=convert.xml2json(get_test.data,{compact: true, spaces: 4})
+        xmlToJson=JSON.parse(xmlToJson);
+        ...
+        res.send({"tmp":tmp, "snow":snow, "rain":rain});
+        }
+        
 ```
 
-밑에다가는 코드 설명을 써주면 돼!!      
-
-
+weatherLookRequest 함수는 request를 받으면 오늘의 날씨를 알려주는 함수입니다.
+request를 받을경우 공공데이터 API에서 오늘의 날씨 정보를 xml 형식으로 받아옵니다.
+이 xml형식의 날씨 정보를 JSON으로 파싱하고, 온도, 적설량, 강수량을 가져옵니다.
+result에 해당 JSON을 포함시켜 안드로이드 앱으로 보내줍니다.
 
 
 #### 🛒 shopping
